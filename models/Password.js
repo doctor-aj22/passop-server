@@ -1,9 +1,13 @@
+// models/Password.js
 import mongoose from "mongoose";
 
 const PasswordSchema = new mongoose.Schema({
-  site: { type: String, required: true },
-  username: { type: String, required: true },
-  password: { type: String, required: true } // Note: Encrypt in production!
+  site: String,
+  username: String,
+  password: String,
+  category: { type: String, default: "Personal" },
+  userId: String,
+  userEmail: String
 }, { timestamps: true });
 
 export default mongoose.model("Password", PasswordSchema);
